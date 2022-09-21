@@ -10,8 +10,8 @@ namespace Travail1.Models.Case
 {
     public class Case
     {
-        private Points points;
-        private int position;
+        protected Points points;
+        protected int position;
         private int largeur;
 
         public int Points {get => points.ObtenirPoints(); }
@@ -24,7 +24,7 @@ namespace Travail1.Models.Case
         }
 
         private PointF ObtenirCoordonees()
-        {
+        {          
             int y = (7 - (position / 8));
             int x = (position % 8);
             if ((position / 8) % 2 == 1)
