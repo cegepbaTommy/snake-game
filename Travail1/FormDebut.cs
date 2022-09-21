@@ -16,5 +16,10 @@ namespace Travail1
         {
             InitializeComponent();
         }
+
+        private void FormDebut_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
