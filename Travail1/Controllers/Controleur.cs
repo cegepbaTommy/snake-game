@@ -16,10 +16,10 @@ namespace Travail1.Controllers
 
         public Joueur[] Joueurs { get => joueurs; }
 
-        public Controleur()
+        public Controleur(string joueur1, string joueur2)
         {
             InitialiserCases();
-            InitialiserJoueurs();
+            InitialiserJoueurs(joueur1, joueur2);
         }
 
         private void InitialiserCases()
@@ -31,11 +31,11 @@ namespace Travail1.Controllers
             }
         }
 
-        private void InitialiserJoueurs()
+        private void InitialiserJoueurs(string joueur1, string joueur2)
         {
             joueurs = new Joueur[2];
-            joueurs[0] = new Joueur(0, "joueur1", Color.Blue);
-            joueurs[1] = new Joueur(1, "joueur2", Color.Red);
+            joueurs[0] = new Joueur(0, joueur1, Color.Blue);
+            joueurs[1] = new Joueur(1, joueur2, Color.Red);
         }
 
         public Bitmap DessinerPlancheJeu()
