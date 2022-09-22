@@ -9,10 +9,10 @@ namespace Travail1
         private Controleur controleur;
         private AffichageJoueur[] affichageJoueurs;
 
-        public FormJeu()
+        public FormJeu(string joueur1, string joueur2)
         {
             InitializeComponent();
-            controleur = new Controleur();
+            controleur = new Controleur(joueur1, joueur2);
             picPlancheJeu.Image = controleur.DessinerPlancheJeu();
             InitAffichageJoueurs();
         }

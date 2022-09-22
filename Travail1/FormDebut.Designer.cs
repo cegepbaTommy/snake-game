@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblText = new System.Windows.Forms.Label();
             this.lblJoueure1 = new System.Windows.Forms.Label();
             this.lblJoueur2 = new System.Windows.Forms.Label();
             this.txtJoueur1 = new System.Windows.Forms.TextBox();
             this.txtJoueur2 = new System.Windows.Forms.TextBox();
             this.btnJouer = new System.Windows.Forms.Button();
+            this.error = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.error)).BeginInit();
             this.SuspendLayout();
             // 
             // lblText
@@ -72,6 +75,7 @@
             this.txtJoueur1.Name = "txtJoueur1";
             this.txtJoueur1.Size = new System.Drawing.Size(169, 23);
             this.txtJoueur1.TabIndex = 3;
+            this.txtJoueur1.TextChanged += new System.EventHandler(this.txtJoueur_TextChanged);
             // 
             // txtJoueur2
             // 
@@ -79,6 +83,7 @@
             this.txtJoueur2.Name = "txtJoueur2";
             this.txtJoueur2.Size = new System.Drawing.Size(169, 23);
             this.txtJoueur2.TabIndex = 4;
+            this.txtJoueur2.TextChanged += new System.EventHandler(this.txtJoueur_TextChanged);
             // 
             // btnJouer
             // 
@@ -88,6 +93,11 @@
             this.btnJouer.TabIndex = 5;
             this.btnJouer.Text = "Jouer";
             this.btnJouer.UseVisualStyleBackColor = true;
+            this.btnJouer.Click += new System.EventHandler(this.btnJouer_Click);
+            // 
+            // error
+            // 
+            this.error.ContainerControl = this;
             // 
             // FormDebut
             // 
@@ -102,7 +112,7 @@
             this.Controls.Add(this.lblText);
             this.Name = "FormDebut";
             this.Text = "Menu";
-            this.Load += new System.EventHandler(this.FormDebut_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.error)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -116,5 +126,6 @@
         private TextBox txtJoueur1;
         private TextBox txtJoueur2;
         private Button btnJouer;
+        private ErrorProvider error;
     }
 }
