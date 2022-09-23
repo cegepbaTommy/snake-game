@@ -20,5 +20,10 @@ namespace Travail1.Controls
             Width = 801;
             Image = joueur.Dessiner();
         }
+        public void reload()
+        {
+            this.Image.Dispose();
+            this.Image = joueur.Dessiner();
+        }
     }
 }

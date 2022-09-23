@@ -55,5 +55,10 @@ namespace Travail1.Models
             }
             return bitmap;
         }
+
+        public void bouger(int position)
+        {
+            this.position += position;
+        }
     }
 }
