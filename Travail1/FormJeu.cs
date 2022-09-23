@@ -30,5 +30,16 @@ namespace Travail1
                 affichageJoueurs[i - 1].Controls.Add(affichageJoueurs[i]);
             }
         }
+
+
+        //TODO to change so the controleur handle it and the evvent handeler in joueur 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            controleur.avancerJoueurDe();
+            for (int i = 0; i < affichageJoueurs.Length; i++)
+            {
+                affichageJoueurs[i].reload();
+            }
+        }
     }
 }
