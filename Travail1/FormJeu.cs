@@ -15,6 +15,15 @@ namespace Travail1
             controleur = new Controleur(joueur1, joueur2);
             picPlancheJeu.Image = controleur.DessinerPlancheJeu();
             InitAffichageJoueurs();
+            foreach (Joueur joueur in controleur.Joueurs)
+            {
+                joueur.ABouger += Joueur_ABouger;
+            }
+        }
+
+        private void Joueur_ABouger(object? sender, int e)
+        {
+            affichageJoueurs[controleur.TourJoueur].reload();
         }
 
         private void InitAffichageJoueurs()
@@ -29,6 +38,12 @@ namespace Travail1
             {
                 affichageJoueurs[i - 1].Controls.Add(affichageJoueurs[i]);
             }
+        }
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            controleur.avancerJoueurDe();
         }
     }
 }

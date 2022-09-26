@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Travail1.Models;
 using Travail1.Models.Case;
+using Travail1.Models.de;
 using Travail1.Models.Point;
 
 namespace Travail1.Controllers
@@ -13,13 +14,16 @@ namespace Travail1.Controllers
     {
         private Case[] cases;
         private Joueur[] joueurs;
+        private int tourJoueur;
 
         public Joueur[] Joueurs { get => joueurs; }
+        public int TourJoueur { get => tourJoueur; set => tourJoueur = value; }
 
         public Controleur(string joueur1, string joueur2)
         {
             InitialiserCases();
             InitialiserJoueurs(joueur1, joueur2);
+            TourJoueur = 0;
         }
 
         private void InitialiserCases()
@@ -49,6 +53,20 @@ namespace Travail1.Controllers
                 }
             }
             return bitmap;
+        }
+        public void avancerJoueurDe()
+        {
+            De de6 = new De(6);
+            int resultat = de6.brasser();
+            joueurs[TourJoueur].bouger(resultat);
+            if (TourJoueur < joueurs.Length - 1)
+            {
+                TourJoueur += 1;
+            }
+            else
+            {
+                TourJoueur = 0;
+            }
         }
     }
 }

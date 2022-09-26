@@ -20,7 +20,7 @@ namespace Travail1.Models
         public int Points { get => points; }
         public int Position { get => position; }
 
-        public event EventHandler ABouger;
+        public event EventHandler<int> ABouger;
 
         public Joueur(int id, string nom, Color couleur)
         {
@@ -54,6 +54,12 @@ namespace Travail1.Models
                 graphics.FillEllipse(brush, coordonees.X, coordonees.Y, diametre, diametre);
             }
             return bitmap;
+        }
+
+        public void bouger(int position)
+        {
+            this.position += position;
+            ABouger?.Invoke(this, position);
         }
     }
 }
