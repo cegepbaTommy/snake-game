@@ -13,6 +13,7 @@ namespace Travail1
         {
             InitializeComponent();
             controleur = new Controleur(joueur1, joueur2);
+            joueursUi.Joueurs = controleur.Joueurs;
             picPlancheJeu.Image = controleur.DessinerPlancheJeu();
             InitAffichageJoueurs();
             foreach (Joueur joueur in controleur.Joueurs)
@@ -21,9 +22,9 @@ namespace Travail1
             }
         }
 
-        private void Joueur_ABouger(object? sender, int e)
+        private void Joueur_ABouger(object? sender, int ID)
         {
-            affichageJoueurs[controleur.TourJoueur].reload();
+            affichageJoueurs[ID].reload();
         }
 
         private void InitAffichageJoueurs()
@@ -44,6 +45,11 @@ namespace Travail1
         private void button1_Click(object sender, EventArgs e)
         {
             controleur.avancerJoueurDe();
+        }
+
+        private void FormJeu_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

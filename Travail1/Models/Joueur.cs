@@ -59,7 +59,7 @@ namespace Travail1.Models
         public void bouger(int position)
         {
             this.position += position;
-            ABouger?.Invoke(this, position);
+            ABouger?.Invoke(this, Id);
         }
     }
 }

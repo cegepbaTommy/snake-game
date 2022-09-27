@@ -12,4 +12,10 @@
     <Folder Include="Views\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Controls\JoueursUi.cs">
+      <Generator>JoueursUi</Generator>
+    </Compile>
+  </ItemGroup>
+
 </Project>

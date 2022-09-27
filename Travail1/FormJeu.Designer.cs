@@ -1,4 +1,6 @@
-﻿namespace Travail1
+﻿using Travail1.Controls;
+
+namespace Travail1
 {
     partial class FormJeu
     {
@@ -30,6 +32,7 @@
         {
             this.picPlancheJeu = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.joueursUi = new Travail1.Controls.JoueursUi();
             ((System.ComponentModel.ISupportInitialize)(this.picPlancheJeu)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,7 +48,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(31, 299);
+            this.button1.Location = new System.Drawing.Point(12, 295);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(213, 77);
             this.button1.TabIndex = 1;
@@ -53,11 +56,20 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // joueursUi
+            // 
+            this.joueursUi.Joueurs = null;
+            this.joueursUi.Location = new System.Drawing.Point(12, 15);
+            this.joueursUi.Name = "joueursUi";
+            this.joueursUi.Size = new System.Drawing.Size(504, 274);
+            this.joueursUi.TabIndex = 0;
+            // 
             // FormJeu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(17F, 41F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1341, 836);
+            this.ClientSize = new System.Drawing.Size(1341, 839);
+            this.Controls.Add(this.joueursUi);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.picPlancheJeu);
             this.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -73,5 +85,6 @@
 
         private PictureBox picPlancheJeu;
         private Button button1;
+        private JoueursUi joueursUi;
     }
 }
