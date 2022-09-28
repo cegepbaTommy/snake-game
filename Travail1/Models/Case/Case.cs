@@ -10,8 +10,8 @@ namespace Travail1.Models.Case
 {
     public class Case
     {
-        private Points points;
-        private int position;
+        protected Points points;
+        protected int position;
         private int largeur;
 
         public int Points {get => points.ObtenirPoints(); }
