@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Travail1.Models.Point;
 
-namespace Travail1.Models.Case
+namespace Travail1.Models.CaseAbstract
 {
-    public class Case
+    public class Case : CaseAbstract
     {
         protected Points points;
         protected int position;
@@ -16,14 +16,14 @@ namespace Travail1.Models.Case
 
         public int Points {get => points.ObtenirPoints(); }
 
-        public Case(Points points, int position)
+        public Case(Points points, int position) : base(points, position)
         {
             this.points = points;
             this.position = position;
             this.largeur = 100;
         }
 
-        private PointF ObtenirCoordonees()
+        protected PointF ObtenirCoordonees()
         {          
             int y = (7 - (position / 8));
             int x = (position % 8);
@@ -34,7 +34,7 @@ namespace Travail1.Models.Case
             return new PointF { X = x * largeur, Y = y * largeur };
         }
 
-        public void Dessiner(Graphics graphics)
+        public override void Dessiner(Graphics graphics)
         {
             var coordonees = ObtenirCoordonees();
             var font = new Font("Calibri", 20);
