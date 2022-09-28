@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Travail1.Models;
 using Travail1.Models.Case;
 
 namespace Travail1.Models
@@ -62,12 +64,11 @@ namespace Travail1.Models
         {
             this.position += position;
             ABouger?.Invoke(this, Id);
-            Point(1);
         }
 
-        public void Point(int point)
+        public void Point(Case.Case Case)
         {
-            this.points += point;
+            this.points += Case.Points;
             PointChanged?.Invoke(this, points);
         }
     }

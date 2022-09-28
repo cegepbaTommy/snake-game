@@ -14,6 +14,8 @@ namespace Travail1
             InitializeComponent();
             controleur = new Controleur(joueur1, joueur2);
             joueursUi.Joueurs = controleur.Joueurs;
+            //TODO
+            joueursUi.Controleur = controleur;
             picPlancheJeu.Image = controleur.DessinerPlancheJeu();
             InitAffichageJoueurs();
             foreach (Joueur joueur in controleur.Joueurs)

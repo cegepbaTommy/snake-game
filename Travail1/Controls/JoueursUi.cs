@@ -16,12 +16,15 @@ namespace Travail1.Controls
     public partial class JoueursUi : UserControl
     {
         private Joueur[] joueurs;
+        //TODO
+        private Controleur controleur;
         public JoueursUi()
         {
             InitializeComponent();
         }
 
         public Joueur[] Joueurs { get => joueurs; set => SetJoueur(value); }
+        public Controleur Controleur { get => controleur; set => controleur = value; }
 
         private void SetJoueur(Joueur[]? joueurs)
         {
@@ -81,7 +84,8 @@ namespace Travail1.Controls
                     lblPointJoueur2.Text = point.ToString();
                 }
             }
-
+            //TODO
+            lblTourJoueur.Text = joueurs[controleur.TourJoueur].Nom;
         }
         private void JoueurCourant(int joueurId)
         {
