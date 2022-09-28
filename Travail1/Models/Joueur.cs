@@ -21,6 +21,7 @@ namespace Travail1.Models
         public int Position { get => position; }
 
         public event EventHandler<int> ABouger;
+        //TODO add an EventHandler for point changed
 
         public Joueur(int id, string nom, Color couleur)
         {
