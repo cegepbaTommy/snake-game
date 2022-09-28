@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Travail1.Controls;
 using Travail1.Models;
 using Travail1.Models.Case;
 using Travail1.Models.de;
@@ -31,7 +32,7 @@ namespace Travail1.Controllers
             cases = new Case[64];
             for (int i = 0; i < cases.Length; i++)
             {
-                cases[i] = new Case(new Points(0), i);
+                cases[i] = new Case(new Points(i + 1), i);
             }
         }
 
@@ -56,9 +57,14 @@ namespace Travail1.Controllers
         }
         public void avancerJoueurDe()
         {
+            // cree et brasse le de 6
             De de6 = new De(6);
             int resultat = de6.brasser();
-            joueurs[TourJoueur].bouger(resultat);
+            // fait bouger le joueur
+            joueurs[TourJoueur].Bouger(resultat);
+            // ajoute les point au joueur
+            joueurs[TourJoueur].Point(cases[joueurs[TourJoueur].Position]);
+            // change le tour du joueur
             if (TourJoueur < joueurs.Length - 1)
             {
                 TourJoueur += 1;
