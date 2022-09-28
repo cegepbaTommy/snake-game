@@ -21,5 +21,9 @@ namespace Travail1.Models.Case
             position = position + (positionFinal - positionInitial);
 
         }
+        public override string ToString()
+        {
+            return position.ToString();
+        }
     }
 }
