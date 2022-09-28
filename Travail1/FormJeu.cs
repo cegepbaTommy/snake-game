@@ -25,7 +25,6 @@ namespace Travail1
         private void Joueur_ABouger(object? sender, int ID)
         {
             affichageJoueurs[ID].reload();
-            //TODO add the update of the player ui so that the point and the player turn always stay up to date ***********
         }
 
         private void InitAffichageJoueurs()

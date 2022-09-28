@@ -20,6 +20,8 @@ namespace Travail1.Controllers
         public Joueur[] Joueurs { get => joueurs; }
         public int TourJoueur { get => tourJoueur; set => tourJoueur = value; }
 
+        public event EventHandler<int> TourChanged;
+
         public Controleur(string joueur1, string joueur2)
         {
             InitialiserCases();
@@ -59,7 +61,7 @@ namespace Travail1.Controllers
         {
             De de6 = new De(6);
             int resultat = de6.brasser();
-            joueurs[TourJoueur].bouger(resultat);
+            joueurs[TourJoueur].Bouger(resultat);
             if (TourJoueur < joueurs.Length - 1)
             {
                 TourJoueur += 1;
@@ -68,6 +70,7 @@ namespace Travail1.Controllers
             {
                 TourJoueur = 0;
             }
+            TourChanged?.Invoke(this, tourJoueur);
         }
     }
 }

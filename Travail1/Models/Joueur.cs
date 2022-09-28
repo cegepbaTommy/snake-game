@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Travail1.Models.Case;
 
 namespace Travail1.Models
 {
@@ -21,7 +22,7 @@ namespace Travail1.Models
         public int Position { get => position; }
 
         public event EventHandler<int> ABouger;
-        //TODO add an EventHandler for point changed
+        public event EventHandler<int> PointChanged;
 
         public Joueur(int id, string nom, Color couleur)
         {
@@ -57,10 +58,17 @@ namespace Travail1.Models
             return bitmap;
         }
 
-        public void bouger(int position)
+        public void Bouger(int position)
         {
             this.position += position;
             ABouger?.Invoke(this, Id);
+            Point(1);
+        }
+
+        public void Point(int point)
+        {
+            this.points += point;
+            PointChanged?.Invoke(this, points);
         }
     }
 }

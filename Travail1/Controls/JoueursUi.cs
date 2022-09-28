@@ -29,6 +29,8 @@ namespace Travail1.Controls
             {
                 lblNomJoueur1.Text = " ";
                 lblNomJoueur2.Text = " ";
+                lblPointJoueur1.Text = "0";
+                lblPointJoueur2.Text = "0";
             }
             else
             {
@@ -37,7 +39,8 @@ namespace Travail1.Controls
             this.joueurs = joueurs;
             if (joueurs is not null)
             {
-               InitAffichage();
+                InitAffichage();
+                Abonner();
             }
         }
         private void Desabonner()
@@ -46,22 +49,49 @@ namespace Travail1.Controls
             {
                 foreach (Joueur joueur in joueurs)
                 {
-                    // add a eventhandeler in joueur
+                    joueur.PointChanged -= RafraichirePointJoueur;
                 }
             }
         }
-        private void rafraichirePointJoueur(Joueur[]? joueurs)
+        private void Abonner()
         {
-            if (joueurs is null)
+            if (joueurs is not null)
             {
-                lblPointJoueur1.Text = " ";
-                lblPointJoueur2.Text = " ";
+                foreach (Joueur joueur in joueurs)
+                {
+                    joueur.PointChanged += RafraichirePointJoueur;
+                }
             }
+        }
+        private void RafraichireTourJoueur(object? sender, int point)
+        {
+
+        }
+        private void RafraichirePointJoueur(object? sender, int point)
+        {
+            if (sender is not null)
+            {
+                Joueur joueur = (Joueur)sender;
+                if (joueur.Id == 0)
+                {
+                    lblPointJoueur1.Text = point.ToString();
+                }
+                if (joueur.Id == 1)
+                {
+                    lblPointJoueur2.Text = point.ToString();
+                }
+            }
+
+        }
+        private void JoueurCourant(int joueurId)
+        {
+            lblTourJoueur.Text = joueurs[joueurId].Nom;
         }
         private void InitAffichage()
         {
             lblNomJoueur1.Text = joueurs[0].Nom;
-            lblNomJoueur2.Text= joueurs[1].Nom;
+            lblNomJoueur2.Text = joueurs[1].Nom;
+            lblTourJoueur.Text = joueurs[0].Nom;
         }
     }
 }
